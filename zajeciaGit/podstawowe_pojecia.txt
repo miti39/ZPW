@@ -1,1 +1,8 @@
-
+repozytorium - takie projekty
+github - stronka internetowa z repozytoriami
+git - pozwala na automatyczne aktualizowanie repozytorium
+commit - zapisywanie zmian
+branch - to jest miejsce gdzie znajdują się pliki z projektu z jakimiś zmianami
+chcknout - przełączanie się między gałęziami
+merge - przyłączenie zmian z dodatkowej gałęzi do głównej
+rebase - 
