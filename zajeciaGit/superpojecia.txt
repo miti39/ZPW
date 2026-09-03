@@ -1,0 +1,6 @@
+revert - robi małe dziecko
+reset - cofa wybranego commita (np. git reset C2)
+HEAD - miejsce gdzie aktualnie jesteśmy
+HEAD^ - przerzuca cie o jeden wyrzej (czyli z C1 -> C0)
+HEAD~2 - przerzuca cie o o wybrany numer wyrzej
+git branch -f main HEAD~3 - przerzuca załą gałąść w dane miejsce (tu przerzuci o 3 do tyłu w stosunku do głowy)
