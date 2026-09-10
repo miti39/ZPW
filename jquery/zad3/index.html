@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://code.jquery.com/jquery-4.0.0.min.js" integrity="sha256-OaVG6prZf4v69dPg6PhVattBXkcOWQB62pdZ3ORyrao=" crossorigin="anonymous"></script>
+
+    <style>
+        #kwadrat { width: 150px; height: 150px; background: lightgray; }
+    </style>
+
+    <script>
+
+        $(function(){
+            // $("button").on("click", function(){
+            //     console.log("test przycisku");
+            // })
+
+            $("#przywitaj").click(function(){
+                console.log("test przycisku 2");
+            })
+
+            // $("button").click(function(){
+            //     alert("czesc");
+            // })
+
+            $("#przywitaj").click(function(){
+                $("p").text("czesc");
+            })
+
+            $("#kwadrat").click(function(){
+                $("#kwadrat").css("background-color", "red");
+            })
+
+            $("body").append('<button id="reset">' + "reset" + '</button>');
+            
+            $("#reset").click(function(){
+                $("#kwadrat").css("background-color", "lightgray");
+                $("#komunikat").text("");
+            })
+        });
+
+    </script>
+
+</head>
+<body>
+    <button id="przywitaj">Przywitaj się</button>
+    <p id="komunikat"></p>
+ 
+    <div id="kwadrat"></div>
+ 
+</body>
+</html>
