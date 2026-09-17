@@ -62,41 +62,29 @@
     <script>
         $(function(){
 
-            $("#answer").click(function(){
-                
-                if(this.checked){
-                    $("#send").removeAttr("disabled")
-                }else{
-                    $("#send").attr("disabled","disabled")
-                }
+            $("li a").each(function(){
+                console.log("to jest element o id: " + this.id)
             })
 
-            $("a").eq(1).addClass("another_link")
-            $("a").eq(2).removeClass()
-
-            $("#removeClass").click(function(){
-                $("p").removeClass()
-                alert("Udało się usunąć")
+            $("li").each(function(index, element){
+                console.log(index + ":" + $(this).text())
             })
-        })
+            
+            $("li").each(function(index, element){
+                console.log($(this).data("cena"))
+            })
+        })  
     </script>
 </head>
 <body>
-    <input type="checkbox" id="answer">
-    <label for="answer">Czy akceptujesz?</label>
-    <button id="send" disabled>Wyśli</button>
-
     <ul>
-        <li><a href="#">The Witcher 3: Wild Hunt</a></li>
-        <li><a href="#">Cyberpunk 2077</a></li>
-        <li><a href="#" class="link">Elden Ring</a></li>
-        <li><a href="#" class="link">Baldur's Gate 3</a></li>
-        <li><a href="#" class="link">Starfield</a></li>
-        <li><a href="#">Hollow Knight</a></li>
+        <li data-cena="25"><a href="#" id="1">The Witcher 3: Wild Hunt</a></li>
+        <li data-cena="15" ><a href="#" id="2">Cyberpunk 2077</a></li>
+        <li data-cena="30"><a href="#" id="3" class="link">Elden Ring</a></li>
+        <li data-cena="28"><a href="#" id="4" class="link">Baldur's Gate 3</a></li>
+        <li data-cena="20"><a href="#"id="5" class="link">Starfield</a></li>
+        <li data-cena="5"><a href="#">Hollow Knight</a></li>
 
     </ul>
-
-    <p class="rak mak">Kodzik dla raka</p>
-    <button id="removeClass">Klikni</button>
 </body>
 </html>
