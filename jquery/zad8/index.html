@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://code.jquery.com/jquery-4.0.0.min.js" integrity="sha256-OaVG6prZf4v69dPg6PhVattBXkcOWQB62pdZ3ORyrao=" crossorigin="anonymous"></script>
+    <style>
+        .pdswietl{
+            background-color: yellow;
+        }
+    </style>
+    <script>
+
+        $(function(){
+            $("#zmien").click(function(){
+                $("#tekst").text("nowy tekst")
+            })
+
+            $("#przelacznik").click(function(){
+                $("#pudelko").toggle()
+            })
+
+            $(".akapit").click(function(){
+                $(".akapit").toggleClass("pdswietl")
+            })
+
+            $("#przywitaj").click(function(){
+                let $val = $("#imie").val()
+                if($val == ""){
+                    $("#wynik").text("Podaj imie")
+                }else{
+                    $("#wynik").text("cześć, " + $val)
+                }
+                
+            })
+        });
+    </script>
+</head>
+<body>
+    <p id="tekst">Stary tekst</p>
+    <button id="zmien">Zmień</button>
+
+    <div id="pudelko">Widzisz mnie</div>
+    <button id="przelacznik">Pokaż/ukryj</button>
+
+    <p class="akapit">Kliknie mnie</p>
+
+    <input type="text" id="imie">
+    <button id="przywitaj">Przywitaj</button>
+    <p id="wynik"></p>
+</body>
+</html>

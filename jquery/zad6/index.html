@@ -71,7 +71,10 @@
             })
             
             $("li").each(function(index, element){
-                console.log($(this).data("cena"))
+                console.log($(this).data("cena")) //int
+            })
+            $("li").each(function(index, element){
+                console.log($(this).attr("data-cena")) //String
             })
         })  
     </script>
