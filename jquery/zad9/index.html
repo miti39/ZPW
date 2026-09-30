@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://code.jquery.com/jquery-4.0.0.min.js" integrity="sha256-OaVG6prZf4v69dPg6PhVattBXkcOWQB62pdZ3ORyrao=" crossorigin="anonymous"></script>
+        <style>
+        #czerwony{
+            background-color: red;
+            width: 200px;
+            height: 200px;
+            position: absolute;
+        }
+        #zielen{
+            background-color: green;
+            width: 20px;
+            height: 20px;
+        }
+    </style>
+    <script>
+
+        $(function(){
+            //Object event
+            
+            // $(document).on("keydown keyup keypress", function(){
+            //     $("#eventType").text(event.type)
+            // })
+
+            // $(document).on("mousemove", function(){
+            //     $("#pageX").text(event.pageX)
+            //     $("#pageY").text(event.pageY)
+            // })
+
+            $("#zielen").css({
+                "margin-left": Math.floor((Math.random() * 500) + 1) + "px",
+                "margin-top": Math.floor((Math.random() * 500) + 1) + "px"
+            })
+
+
+            let positionX = 0
+            let positionY = 0
+            $(document).on("keydown", function(){
+                if(event.key == "a"){
+                    positionX = positionX - 10
+                    $("#czerwony").css("margin-left", positionX + "px")
+                }
+                if(event.key == "d"){
+                    positionX = positionX + 10
+                    $("#czerwony").css("margin-left", positionX + "px")
+                }
+
+                if(event.key == "w"){
+                    positionY = positionY - 10
+                    $("#czerwony").css("margin-top", positionY + "px")
+                }
+                if(event.key == "s"){
+                    positionY = positionY + 10
+                    $("#czerwony").css("margin-top", positionY + "px")
+                }
+            })
+        });
+    </script>
+</head>
+<body>
+<!--     
+    <input type="text" id="pole">
+
+    <p>
+        Typ zadania: 
+        <span id="eventType">---</span>
+    </p>
+
+    <p>
+        pozycja myszki:
+        X = <span id="pageX">---</span>
+        Y = <span id="pageY">---</span>
+    </p> -->
+
+    <div id="czerwony">
+
+    </div>
+
+    <div id="zielen">
+
+    </div>
+</body>
+</html>
