@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://code.jquery.com/jquery-4.0.0.min.js" integrity="sha256-OaVG6prZf4v69dPg6PhVattBXkcOWQB62pdZ3ORyrao=" crossorigin="anonymous"></script>
+    <style>
+        .super{
+            background-color: green;
+        }
+        .zle{
+            background-color: red;
+        }
+    </style>
+    <script>
+
+        $(function(){
+            $("#form").submit(function(e){
+                e.preventDefault();
+                if($("#nick").val() == ""){
+                    $("#info").text("Podaj nick")
+                }else{
+                    $("#info").text("przesłano nick " + $("#nick").val())
+                }
+            })
+
+            $("#form2").submit(function(e){
+                e.preventDefault();
+                
+                let $haslo = $("#haslo").val()
+                let $email = $("#email").val()
+
+                if($haslo.length() >= 6){
+                    $("#info2").text("Hasło jest za krótkire")
+                    $("#info2").addClass("zle")
+                }else{
+                    $("#info2").text("Zalogowano")
+                    $("#info2").addClass("super")
+                }
+            })
+        });
+
+    </script>
+</head>
+<body>
+
+    <form id="form">
+        <input type="text" id="nick">
+        <button type="submit">Wyślij</button>
+    </form>
+    <p id="info"></p>
+
+    <form id="form2">
+        <input type="text" id="email">
+        <input type="password" id="haslo">
+        <button type="submit">Wyślij</button>
+    </form>
+    <p id="info2"></p>
+
+</body>
+</html>
