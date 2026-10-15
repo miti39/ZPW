@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://code.jquery.com/jquery-4.0.0.min.js" integrity="sha256-OaVG6prZf4v69dPg6PhVattBXkcOWQB62pdZ3ORyrao=" crossorigin="anonymous"></script>
+        <style>
+        #rak1{
+            background-color: rebeccapurple;
+            color: azure;
+            width: 200px;
+            height: 200px;
+            text-align: center;
+            
+        }
+        #rak2{
+            background-color: greenyellow;
+            width: 200px;
+            height: 200px;
+            text-align: center;
+        }
+
+        #rak3{
+            background-color: blanchedalmond;
+            color: black;
+            width: 200px;
+            height: 200px;
+            text-align: center;
+        }
+
+        #rak4{
+            background-color: goldenrod;
+            color: black;
+            width: 200px;
+            height: 200px;
+            text-align: center;
+        }
+
+        .poprawna{
+            background-color: green;
+        }
+        .zla{
+            background-color: red;
+        }
+    </style>
+    <script>
+
+        $(function(){
+            
+            // $("#ukryjRak1").click(function(){
+            //     $("#rak1").hide()
+            // })
+            // $("#pokarzRak1").click(function(){
+            //     $("#rak1").show()
+            // })
+
+            // $("#rak2toggle").click(function(){
+            //     $("#rak2").toggle()
+            // })
+
+            // $("#slideUpRak3").click(function(){
+            //     $("#rak3").slideUp()
+            // })
+            // $("#slideDownRak3").click(function(){
+            //     $("#rak3").slideDown()
+            // })
+
+            // $("#slideToggleRak4").click(function(){
+            //     $("#rak4").slideToggle()
+            // })
+
+            $("#p1button").click(function(){
+                var odp = $('input[name="p1Radio"]:checked').val();
+                if(odp == "B"){
+                    $('#p1B').addClass("poprawna")
+                }else if(odp == "A"){
+                    $('#p1A').addClass("zla")
+                    $("#p1").append("<p>zła odp bo tak</p>")
+                }else if(odp == "C"){
+                    $('#p1C').addClass("zla")
+                    $("#p1").append("<p>zła odp bo tak</p>")
+                }
+            })
+        });
+    </script>
+</head>
+<body>
+    <!-- <button id="ukryjRak1">Ukryj Rak 1</button>
+    <button id="pokarzRak1">pokarz rak 1</button>
+
+    <div id="rak1" >
+        <p>RAK 1</p>
+    </div>
+
+    <button id="rak2toggle">Rak 2</button>
+
+    <div id="rak2" >
+        <p>RAK 2</p>
+    </div>
+
+    <button id="slideUpRak3">slideUP rak 3</button>
+    <button id="slideDownRak3">slideDown rak 3</button>
+
+    <div id="rak3" >
+        <p>RAK 3</p>
+    </div>
+
+    <button id="slideToggleRak4">slideToggle rak 4</button>
+
+    <div id="rak4" >
+        <p>RAK 4</p>
+    </div> -->
+
+    <div id="p1">
+        <p>Ile lat ma Mnich który urodził się w 2025</p>
+        <form>
+            <label id="p1A">
+                <input type="radio" name="p1Radio" value="A" id="A1">
+                qwerty
+            </label>
+            <br>
+            <label id="p1B">
+                <input type="radio" name="p1Radio" value="B" id="B1">
+                1 rok
+            </label>
+            <br>
+            <label id="p1C">
+                <input type="radio" name="p1Radio" value="C" id="C1">
+                2025 lat
+            </label>
+            <br>
+        </form>
+        <button id="p1button">Wyśli odp</button>
+    </div>
+</body>
+</html>
