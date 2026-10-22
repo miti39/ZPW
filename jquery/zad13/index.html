@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://code.jquery.com/jquery-4.0.0.min.js" integrity="sha256-OaVG6prZf4v69dPg6PhVattBXkcOWQB62pdZ3ORyrao=" crossorigin="anonymous"></script>
+    <style>
+        .super{
+            background-color: green;
+        }
+        .zle{
+            background-color: red;
+        }
+    </style>
+    <script>
+
+        $(function(){
+            $("#kolory").change(function(){
+                $("body").css("background-color", $(this).val())
+            })
+
+            $("#rozmiar").change(function(){
+                $("#zaplata").text("do zapłaty masz "+ $(this).val() + "zł do zapłaty")
+            })
+
+            $("#newsleter").change(function(){
+                if($(this).is(":checked")){
+                    $("#stan").text("zapisany")
+                }else{
+                    $("#stan").text("wypisany")
+                }
+            })
+
+            $("#zaloguj").change(function(){
+                if($(this).is(":checked")){
+                    $("#loginB").prop("disabled", false)
+                }else{
+                    $("#loginB").prop("disabled", true)
+                }
+
+                //Lepszy sposób
+                //$("#loginB").prop("disabled", !$(this).is(":checked"))
+            })
+
+            $("#text").on("input", function(){
+                $("#podglad").text($(this).val())
+            })
+            $("#tekstarea").on("input", function(){
+                let liczba = 100 - $(this).val().length
+
+                $("#licznik").text("Pozostało " + liczba + " znaków")
+                if(liczba <= 10){
+                    $("#licznik").css("color", "red")
+                } else {
+                    $("#licznik").css("color", "black")
+                }
+            })
+        });
+
+    </script>
+</head>
+<body>
+
+    <select id="kolory">
+        <option value="white">bialy</option>
+        <option value="yellow">zolty</option>
+        <option value="blue">niebieski</option>
+    </select>
+
+    <hr>
+
+    <select id="rozmiar">
+        <option value="20">mała (20zł)</option>
+        <option value="30">średnia (30zł)</option>
+        <option value="40">duża (40zł)</option>
+    </select>
+    <p id="zaplata"></p>
+
+    <hr>
+
+    <input type="checkbox" id="newsleter"> Chcę newsleter
+    <p id="stan"></p>
+
+    <hr>
+
+    <button id="loginB" disabled>Zaloguj się!</button>
+    <br>
+    <input type="checkbox" id="zaloguj"> Akceptuję regulamin
+
+    <hr>
+    <input type="text" id="text">
+    <p>Podgląd <span id="podglad"></span></p>
+
+    <hr>
+
+    <textarea id="tekstarea" maxlength="100"></textarea>
+    <p id="licznik">Pozostało 100 znaków</p>
+</body>
+</html>
