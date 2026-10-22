@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://code.jquery.com/jquery-4.0.0.min.js" integrity="sha256-OaVG6prZf4v69dPg6PhVattBXkcOWQB62pdZ3ORyrao=" crossorigin="anonymous"></script>
+    <style>
+        .super{
+            background-color: green;
+        }
+        .zle{
+            background-color: red;
+        }
+    </style>
+    <script>
+
+        $(function(){
+            $("#sprawdz").click(function(){
+                let imie = $("#imie").val().trim()
+                if(imie == ""){
+                    $("#blad").text("imie jest wymagane")
+                }else{
+                    $("#blad").text("Twoje imie to " + imie)
+                }
+            })
+
+            $("#zapisz").click(function(){
+                let ocena = Number($("#ocena").val())
+                
+                if(isNaN(ocena)) {
+                    $("#bladOcena").text("Ocena musi być liczbą")
+                } else if(ocena < 1 || ocena > 6) {
+                    $("#bladOcena").text("Ocena musi być z zakresu 1-6")
+                } else if(!Number.isInteger(ocena)) {
+                    $("#bladOcena").text("Ocena musi być liczbą całkowitą")
+                } else {
+                    $("#bladOcena").text("Zapisano ocenę: " + ocena)
+                }
+            })
+        })
+    </script>
+</head>
+<body>
+    <input type="text" name="" id="imie">
+    <button id="sprawdz">Sprawdź</button>
+    <p id="blad"></p>
+    
+    <hr>
+
+    <input type="text" id="ocena">
+    <button id="zapisz">Zapisz</button>
+    <p id="bladOcena"></p>
+</body>
+</html>
