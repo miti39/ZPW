@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://code.jquery.com/jquery-4.0.0.min.js" integrity="sha256-OaVG6prZf4v69dPg6PhVattBXkcOWQB62pdZ3ORyrao=" crossorigin="anonymous"></script>
+    <title>Document</title>
+
+    <style>
+        .red{
+            color: red;
+        }
+        hr{
+            margin-top: 30px;
+            margin-bottom: 30px;
+        }
+
+        .slabe{
+            background-color: red;
+        }
+        .srednie{
+            background-color: orange;
+        }
+        .silne{
+            background-color: green;
+        }
+    </style>
+
+    <script>
+        $(function(){
+            $("#szukaj").on("keydown", function(){
+                if(event.key == "Enter"){
+                    if($("#szukaj").val().trim() != ""){
+                        $("#wynik").text("Szukam: " + $("#szukaj").val()).removeClass("red")
+                    }else{
+                        $("#wynik").text("Wpisz frazę!").addClass("red")
+                    }
+                }
+
+                if(event.key == "Escape"){
+                    $("#szukaj").text("")
+                    $("#wynik").text("")
+                }
+            })
+
+            $("#haslo").on("input", function(){
+                let haslo = $("#haslo").val().length
+
+                if(haslo< 6){
+                    $("#sila").text("slabe").addClass("slabe")
+                }
+                if(haslo >= 6 && haslo < 9){
+                    $("#sila").text("srednie").addClass("srednie")
+                }
+                if(haslo > 10){
+                    $("#sila").text("silne").addClass("silne")
+                }
+            })
+
+            $("#logowanie").submit(function(e){
+                e.preventDefault();
+                if($("#login").val() == ""){
+                    $("#info").append("Podaj login ")
+                }
+                else if($("#pass").val().length < 6){
+                    $("#info").append("Hasło za krótkie ")
+                }
+                else{
+                    $("#info").text("Witaj, " + $("#login").val())
+                }
+            })
+
+            $("#rozmiar").change(function(){
+                let rozmiar = $(this).val() + "px"
+
+                $("#tekst").css("font-size", rozmiar).text("rozmiar: "+ rozmiar)
+
+            })
+
+            
+
+            $(".dodatek").change(function(){
+                let zakupy = 20;
+                $(".dodatek:checked").each(function(){         
+                    zakupy += Number($(this).val())
+                })
+                $("#suma").text(zakupy)
+            })
+            
+        })  
+    </script>
+</head>
+<body>
+    <input type="text" id="szukaj" placeholder="Szukaj...">
+    <p id="wynik"></p>
+
+    <hr>
+
+    <input type="password" id="haslo">
+    <p id="sila"></p>
+
+    <hr>
+
+    <form id="logowanie">
+    <input type="text" id="login" placeholder="Login">
+    <input type="password" id="pass" placeholder="Hasło">
+    <button type="submit">Zaloguj</button>
+    </form>
+    <p id="info"></p>
+
+    <hr>
+
+    <select id="rozmiar">
+    <option value="14">Mały</option>
+    <option value="20">Średni</option>
+    <option value="28">Duży</option>
+    </select>
+    <p id="tekst">Przykładowy tekst akapitu.</p>
+
+    <hr>
+
+    <label><input type="checkbox" class="dodatek" value="3"> Ser (3 zł)</label>
+    <label><input type="checkbox" class="dodatek" value="5"> Szynka (5 zł)</label>
+    <label><input type="checkbox" class="dodatek" value="4"> Pieczarki (4 zł)</label>
+    <p>Cena: <span id="suma">20</span> zł</p>
+    <label><input type="checkbox" id="akcept"> Potwierdzam zamówienie</label>
+    <button id="zamow" disabled>Zamów</button>
+</body>
+</html>
