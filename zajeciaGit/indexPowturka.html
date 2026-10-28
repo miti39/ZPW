@@ -86,6 +86,14 @@
                 })
                 $("#suma").text(zakupy)
             })
+
+            $("#akcept").change(function(){
+                if($(this).is(":checked")){
+                    $("#zamow").prop("disabled", false)
+                }else{
+                    $("#zamow").prop("disabled", true)
+                }
+            })
             
         })  
     </script>
